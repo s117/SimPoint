@@ -84,6 +84,8 @@
 #include "Datapoint.h"
 #include <vector>
 
+using namespace std;
+
 class Dataset : public vector<Datapoint> {
     public:
         Dataset();

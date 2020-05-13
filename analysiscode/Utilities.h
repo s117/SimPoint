@@ -86,6 +86,8 @@
 #include "Dataset.h"
 #include "Logger.h"
 #include <string>
+#include <climits>
+#include <cstdlib>
 
 string toString(int i);
 string toString(double d);
