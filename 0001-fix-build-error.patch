@@ -1,0 +1,72 @@
+diff --git a/analysiscode/CmdLineParser.cpp b/analysiscode/CmdLineParser.cpp
+index cd53a12..387d353 100644
+--- a/analysiscode/CmdLineParser.cpp
++++ b/analysiscode/CmdLineParser.cpp
+@@ -71,6 +71,7 @@
+ 
+ 
+ #include "CmdLineParser.h"
++#include <cstring>
+ 
+ bool CmdLineParser::parseCmdLine(int argc, char **argv) {
+     for (int argNdx = 0; argNdx < argc; argNdx++) {
+diff --git a/analysiscode/Datapoint.h b/analysiscode/Datapoint.h
+index 71a41e9..54fa836 100644
+--- a/analysiscode/Datapoint.h
++++ b/analysiscode/Datapoint.h
+@@ -82,6 +82,7 @@
+  ***********************************************************************/
+ 
+ #include <vector>
++#include <iostream>
+ #include <cstdio>
+ 
+ using namespace std;
+diff --git a/analysiscode/Dataset.h b/analysiscode/Dataset.h
+index 12386a5..5615ad1 100644
+--- a/analysiscode/Dataset.h
++++ b/analysiscode/Dataset.h
+@@ -84,6 +84,8 @@
+ #include "Datapoint.h"
+ #include <vector>
+ 
++using namespace std;
++
+ class Dataset : public vector<Datapoint> {
+     public:
+         Dataset();
+diff --git a/analysiscode/FVParser.cpp b/analysiscode/FVParser.cpp
+index 8f22445..b106076 100644
+--- a/analysiscode/FVParser.cpp
++++ b/analysiscode/FVParser.cpp
+@@ -79,6 +79,7 @@
+ #include "FVParser.h"
+ #include "Utilities.h"
+ #include <string>
++#include <cstring>
+ 
+ // take care of a difference between G++ 2.96 and 3.x
+ #if (__GNUC__ >= 3)
+diff --git a/analysiscode/Makefile b/analysiscode/Makefile
+index a7ed513..e373e32 100644
+--- a/analysiscode/Makefile
++++ b/analysiscode/Makefile
+@@ -1,4 +1,4 @@
+-CPPFLAGS = -Wall -pedantic -pedantic-errors -O3
++CPPFLAGS = -Wall -pedantic -pedantic-errors -O3 -std=gnu++98
+ 
+ CXX = g++
+ 
+diff --git a/analysiscode/Utilities.h b/analysiscode/Utilities.h
+index 8f70e70..b3df321 100644
+--- a/analysiscode/Utilities.h
++++ b/analysiscode/Utilities.h
+@@ -86,6 +86,8 @@
+ #include "Dataset.h"
+ #include "Logger.h"
+ #include <string>
++#include <climits>
++#include <cstdlib>
+ 
+ string toString(int i);
+ string toString(double d);
